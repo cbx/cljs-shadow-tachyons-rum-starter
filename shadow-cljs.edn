@@ -1,0 +1,14 @@
+{:source-paths ["src"]
+ :dependencies [[rum "0.12.8"]
+                [philoskim/debux "0.8.1"]]
+ 
+ :dev-http {5000 "build/browser"}
+ :nrepl {:port 8777}
+ 
+ :builds
+ {:browser {:target :browser
+            :output-dir "build/browser"
+            :asset-path "."
+            :modules {:main {:entries [browser.main]
+                             :init-fn browser.main/init}}
+            :build-hooks [(_build_hooks.browser/copy-index)]}}}
